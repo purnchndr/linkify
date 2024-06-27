@@ -16,6 +16,10 @@ async function getlink(req, res, next) {
   return res.status(200).json({ message: 'Request fulfilled ', data });
 }
 
+async function welcome(req, res, next) {
+  return res.status(200).json({ message: 'Welcome to linkify..' });
+}
+
 async function getlinkAndRedirect(req, res, next) {
   const id = req.params.id;
   if (!id) return res.status(404).json({ message: 'Link not found ' });
@@ -63,4 +67,5 @@ module.exports = {
   getlink,
   getlinkAndRedirect,
   deleteLink,
+  welcome,
 };
