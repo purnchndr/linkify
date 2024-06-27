@@ -10,7 +10,7 @@ async function getlink(req, res, next) {
   if (!id) return res.status(404).json({ message: 'Link not found ' });
   const data = await Link.findOne({ hash: id });
   if (!data)
-    res
+    return res
       .status(404)
       .json({ message: 'URL not found with given id', code: 'wrong_url_id' });
   return res.status(200).json({ message: 'Request fulfilled ', data });
